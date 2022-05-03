@@ -29,7 +29,7 @@ public class Uebungen extends AppCompatActivity {
     };
 
     String[] listviewShortDescription = new String[]{
-            "ggg raus an die frische Luft und laufe durch die Gegend", "Wirke Verspannungen entgegen", "Android ListView Short Description", "Android ListView Short Description",
+            "Geh raus an die frische Luft und laufe durch die Gegend", "Wirke Verspannungen entgegen", "Android ListView Short Description", "Android ListView Short Description",
             "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
     };
 

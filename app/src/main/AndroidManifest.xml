@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".FirstOpenActivity1"
+            android:exported="false" />
+        <activity
             android:name=".Aktive_Uebung"
             android:exported="false"
-            android:parentActivityName=".Uebungen"/>
+            android:parentActivityName=".Uebungen" />
         <activity
             android:name=".Uebungshistorie"
             android:exported="false"

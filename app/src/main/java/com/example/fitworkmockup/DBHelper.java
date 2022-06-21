@@ -25,6 +25,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_NAME_SCHWIERIGKEIT = "Schwierigkeit"; //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
     public static final String COLUMN_NAME_WIEDERHOLUNG = "Wiederholung"; // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
     public static final String COLUMN_NAME_PARTNER = "Partner"; //wieder wenn mit Partner = true, sonst false
+    public static final String COLUMN_NAME_VORGABEZEIT = "VorgegebeneZeit";
+    public static final String COLUMN_NAME_BEISPIEL = "Beispiel";
+    public static final String COLUMN_NAME_ARBEITSZEIT = "Arbeitszeit"; //wenn während Arbeitszeit geeignet = true
+
+
+
 
     //Deklarationen Tabelle für gespeicherte Übungen
     public static final String TABLE_HISTORIE = "Übungshistorie";
@@ -39,7 +45,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CREATE_TABLE_WORKOUTS = "CREATE TABLE "+ TABLE_WORKOUTS+ "("+  COLUMN_NAME_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
             COLUMN_NAME_UEBUNGSNAME+ " TEXT NOT NULL, "+ COLUMN_NAME_UEBUNGSBESCHREIBUNG+ " TEXT NOT NULL, "+ COLUMN_NAME_GIF+ " TEXT NOT NULL, "+
             COLUMN_NAME_BILD+ " TEXT NOT NULL, "+COLUMN_NAME_KOERPERTEIL+ " TEXT NOT NULL, "+ COLUMN_NAME_SCHWIERIGKEIT+ " TEXT NOT NULL, "+
-            COLUMN_NAME_WIEDERHOLUNG+ " TEXT NOT NULL, "+ COLUMN_NAME_PARTNER+ " TEXT NOT NULL);";
+            COLUMN_NAME_WIEDERHOLUNG+ " TEXT NOT NULL, "+ COLUMN_NAME_PARTNER+ " TEXT NOT NULL, "+  COLUMN_NAME_VORGABEZEIT+ " TEXT NOT NULL, "+
+            COLUMN_NAME_BEISPIEL+ " TEXT NOT NULL, "+COLUMN_NAME_ARBEITSZEIT+ " TEXT NOT NULL);";
 
     //Init-String Tabelle für gespeicherte Übungen
     public static final String CREATE_TABLE_HISTORIE= "CREATE TABLE "+ TABLE_HISTORIE+ "("+  COLUMN_NAME_ID+ " INTEGER PRIMARY KEY AUTOINCREMENT, "+
@@ -98,6 +105,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values1.put(COLUMN_NAME_SCHWIERIGKEIT, "1-2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values1.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values1.put(COLUMN_NAME_PARTNER, mTrue);
+        values1.put(COLUMN_NAME_VORGABEZEIT, "1-5 Minuten"); //einfach als String
+        values1.put(COLUMN_NAME_BEISPIEL, "Blahhhhhhhh");
+        values1.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values1);
 
         //Übung 2

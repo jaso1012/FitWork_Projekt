@@ -5,6 +5,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class Aktive_Uebung extends AppCompatActivity {
 
     @Override
@@ -15,5 +17,7 @@ public class Aktive_Uebung extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Gewählte Übung");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        GifImageView gifImageView = findViewById(R.id.gifImageView);
+        gifImageView.setImageResource(R.drawable.spazieren_gif);
     }
 }

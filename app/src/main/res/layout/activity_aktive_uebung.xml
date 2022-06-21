@@ -20,8 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:src="@drawable/spazieren_gif" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <TextView
         android:id="@+id/textView"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FitWorkMockup</string>
+    <string name="app_name">Fit@Work - Aktive Mittagspause</string>
     <string name="title_activity_uebungen">Uebungen</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

@@ -15,13 +15,12 @@
     <string name="heading_two">Sitzen macht krank</string>
     <string name="heading_three">Ein paar Mintuen Bewegung…</string>
     <string name="heading_fourth">Hier kommen wir ins Spiel!</string>
-    <string name="heading_sixth">"Kinderleichte Durchführung"</string>
-    <string name="heading_seventh">Los geht\'s mit fit@work!</string>
+
 
     // FirstOpen: Describtion
     <string name="desc_one">Fit am Arbeitsplatz mit einfachen und effektiven Übungen</string>
     <string name="desc_two">Unser Körper ist nicht auf langes Sitzen ausgelegt: Vor allem Menschen, die berufsbedingt viel sitzen, sind besonders auf Herz-Kreislauf-Erkrankungen, Schlaganfälle und Diabetes gefährdet  </string>
     <string name="desc_three">…lässt schon den Blutzucker senken, hilft der Konzentration und fördert fettverbrennende Prozesse im Körper, kurzum: Wir fühlen uns gut!</string>
     <string name="desc_fourth">Egal, wie dein Fitnessstand ist, wie viel Zeit du hast, ob alleine oder zusammen: Mit Fit@Work kannst du selbst Deine aktive Pause zusammenstellen! </string>
-    <string name="desc_fifth">Jede Übung besteht aus einer Schritt-für-Schritt-Anleitung mit Vorführbeispiel</string>
+
 </resources>

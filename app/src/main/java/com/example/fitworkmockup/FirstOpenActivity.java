@@ -4,7 +4,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -24,9 +26,12 @@ public class FirstOpenActivity extends AppCompatActivity {
     TextView[] dots;
     ViewPageAdapter viewPagerAdapter;
 
+    String prevStarted = "yes"; // Wird benötigt, damit FirstOpenActivity nur beim ersten Mal geöffnet wird
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_open);
 
@@ -56,7 +61,7 @@ public class FirstOpenActivity extends AppCompatActivity {
         vor_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (getitem(0) < 4)
+                if (getitem(0) < 3)
                     mSlideViewPager.setCurrentItem(getitem(1),true);
                 else {
 
@@ -79,10 +84,26 @@ public class FirstOpenActivity extends AppCompatActivity {
 
     }
 
+    protected void onResume() // Implementierung der nur beim ersten Mal Öffnen
+    {
+        super.onResume();
+        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if (!sharedpreferences.getBoolean(prevStarted, false))
+        {
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(prevStarted, Boolean.TRUE);
+            editor.apply();
+        } else {
+            Intent intent = new Intent(FirstOpenActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public void setUpindicator(int position){
 
-        dots = new TextView[5];
+        dots = new TextView[4];
         mDotLayout.removeAllViews();
 
         for (int i = 0 ; i < dots.length ; i++){
@@ -133,7 +154,4 @@ public class FirstOpenActivity extends AppCompatActivity {
 
         return mSlideViewPager.getCurrentItem() + i;
     }
-
-
-
 }

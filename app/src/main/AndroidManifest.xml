@@ -9,9 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".ViewPageAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".FirstOpenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".Aktive_Uebung"
             android:exported="false"
-            android:parentActivityName=".Uebungen"/>
+            android:parentActivityName=".Uebungen" />
         <activity
             android:name=".Uebungshistorie"
             android:exported="false"
@@ -22,7 +34,8 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:parentActivityName=".FirstOpenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

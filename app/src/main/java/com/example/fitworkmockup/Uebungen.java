@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ public class Uebungen extends AppCompatActivity {
 
     DBHelper mDBHelper = new DBHelper(this);
     private List<HashMap<String, String>> mUebungenList = new ArrayList<HashMap<String, String>>();
+    private  String mClickedItem;
 
     // Array of strings for ListView Title
     /*String[] listviewTitle = new String[]{
@@ -60,6 +62,9 @@ public class Uebungen extends AppCompatActivity {
         androidListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final String item = parent.getItemAtPosition(position).toString();
+                mClickedItem = item.substring(0,1);
+                Log.d("TAG", item);
                 Intent intent = new Intent(Uebungen.this, Aktive_Uebung.class);
                 startActivity(intent);
             }

@@ -243,9 +243,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values9.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values9.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values9.put(COLUMN_NAME_PARTNER, mFalse);
-        values5.put(COLUMN_NAME_VORGABEZEIT, "1-2 Minuten"); //einfach als String
-        values5.put(COLUMN_NAME_BEISPIEL, "Im Bürostuhl aufrecht hinsetzen. Die Unterarme liegen parallel auf der Tischplatte und die Finger zeigen nach vorne. Drücken Sie nun die Unterarme kräftig gegen den Tisch und halten die Spannung");
-        values5.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
+        values9.put(COLUMN_NAME_VORGABEZEIT, "1-2 Minuten"); //einfach als String
+        values9.put(COLUMN_NAME_BEISPIEL, "Im Bürostuhl aufrecht hinsetzen. Die Unterarme liegen parallel auf der Tischplatte und die Finger zeigen nach vorne. Drücken Sie nun die Unterarme kräftig gegen den Tisch und halten die Spannung");
+        values9.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values9);
 
         //Übung 10
@@ -260,9 +260,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values10.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values10.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values10.put(COLUMN_NAME_PARTNER, mTrue);
-        values5.put(COLUMN_NAME_VORGABEZEIT, "2-3 Minuten"); //einfach als String
-        values5.put(COLUMN_NAME_BEISPIEL, "Person A wirft Person B einen Bleistift zu und gibt Befehl mit welcher Hand dieser gefangen werden soll. Variation: Gegenstand und Anzahl dieser kann variiert werden, sowie Name des Befehls, Art des Fangens und des Werfens");
-        values5.put(COLUMN_NAME_ARBEITSZEIT, mFalse); //wenn während Arbeitszeit geeignet = true
+        values10.put(COLUMN_NAME_VORGABEZEIT, "2-3 Minuten"); //einfach als String
+        values10.put(COLUMN_NAME_BEISPIEL, "Person A wirft Person B einen Bleistift zu und gibt Befehl mit welcher Hand dieser gefangen werden soll. Variation: Gegenstand und Anzahl dieser kann variiert werden, sowie Name des Befehls, Art des Fangens und des Werfens");
+        values10.put(COLUMN_NAME_ARBEITSZEIT, mFalse); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values10);
     }
 

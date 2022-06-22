@@ -106,7 +106,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values1.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values1.put(COLUMN_NAME_PARTNER, mTrue);
         values1.put(COLUMN_NAME_VORGABEZEIT, "1-5 Minuten"); //einfach als String
-        values1.put(COLUMN_NAME_BEISPIEL, "Blahhhhhhhh");
+        values1.put(COLUMN_NAME_BEISPIEL, "z.B. Rechter Arm nach oben und linkes Bein zur Seite im Wechsel mit linker Arm nach oben und rechtes Bein zur Seite");
         values1.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values1);
 
@@ -122,6 +122,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values2.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values2.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values2.put(COLUMN_NAME_PARTNER, mTrue);
+        values2.put(COLUMN_NAME_VORGABEZEIT, "1-5 Minuten"); //einfach als String
+        values2.put(COLUMN_NAME_BEISPIEL, "Armdrücken mit parallel auf dem Ellenbogen stehenden Oberarmen ");
+        values2.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values2);
 
         //Übung 3
@@ -136,6 +139,9 @@ public class DBHelper extends SQLiteOpenHelper {
         values3.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values3.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values3.put(COLUMN_NAME_PARTNER, mFalse);
+        values3.put(COLUMN_NAME_VORGABEZEIT, "2-5 Minuten"); //einfach als String
+        values3.put(COLUMN_NAME_BEISPIEL, "Achtsam Atmen ");
+        values3.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values3);
 
         //Übung 4
@@ -143,98 +149,120 @@ public class DBHelper extends SQLiteOpenHelper {
         int baum_liegestuetze_gif = R.drawable.baum_liegestuetze_gif;
         ContentValues values4 = new ContentValues();
         values4.put(COLUMN_NAME_UEBUNGSNAME, "Baum Liegestütze");
-        values4.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
+        values4.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Vor einem Baum und einer Wand stehend (mit ca. 20-30 cm Abstand) werden die Handflächen auf den Baum/ die Wand gelegt. Anschließend werden Liegestützen gemacht, indem die Ellenbogen gebeugt und dernKopf in die Richtung der Hände gestreckt wird während der Rücken gerade bleibt. Anschließend drückt man sich durch Ausstrecken der Arme zurück in die Ausgangsposition. ");
         values4.put(COLUMN_NAME_GIF, Integer.toString(baum_liegestuetze_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
         values4.put(COLUMN_NAME_BILD, Integer.toString(baum_liegestuetz_bild)); //siehe GIF
         values4.put(COLUMN_NAME_KOERPERTEIL, mArme);
         values4.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values4.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values4.put(COLUMN_NAME_PARTNER, mTrue);
+        values4.put(COLUMN_NAME_PARTNER, mFalse);
+        values4.put(COLUMN_NAME_VORGABEZEIT, "1-5 Minuten"); //einfach als String
+        values4.put(COLUMN_NAME_BEISPIEL, "Liegestützen vertikal an einem Baum oder einer Wand.");
+        values4.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values4);
 
         //Übung 5
-        int bild5 = R.drawable.beinschwung_bild;
-        int gif5 = R.drawable.beinschwung;
+        int beinschwung_bild = R.drawable.beinschwung_bild;
+        int beinschwung = R.drawable.beinschwung;
         ContentValues values5 = new ContentValues();
-        values5.put(COLUMN_NAME_UEBUNGSNAME, "Übung 5");
-        values5.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values5.put(COLUMN_NAME_GIF, Integer.toString(gif5)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values5.put(COLUMN_NAME_BILD, Integer.toString(bild5)); //siehe GIF
-        values5.put(COLUMN_NAME_KOERPERTEIL, mMental);
-        values5.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
-        values5.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values5.put(COLUMN_NAME_PARTNER, mTrue);
+        values5.put(COLUMN_NAME_UEBUNGSNAME, "Beinschwung");
+        values5.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Auf dem linken Bein stehen, den rechten Arm und das rechte Bein vor- und zurückschingen. Danach andersherum (linkes Bein, linker Arm schwingen).");
+        values5.put(COLUMN_NAME_GIF, Integer.toString(beinschwung)); //echt  auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values5.put(COLUMN_NAME_BILD, Integer.toString(beinschwung_bild)); //siehe GIF
+        values5.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
+        values5.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
+        values5.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
+        values5.put(COLUMN_NAME_PARTNER, mFalse);
+        values5.put(COLUMN_NAME_VORGABEZEIT, "2-3 Minuten"); //einfach als String
+        values5.put(COLUMN_NAME_BEISPIEL, "Im Einbeinstand jeweils das freie Bein und den Arm der gleichen Seite vor- und zurückschwingen.");
+        values5.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values5);
 
         //Übung 6
-        int bild6 = R.drawable.dehnen_bild;
-        int gif6 = R.drawable.dehnen_gif;
+        int dehnen_bild = R.drawable.dehnen_bild;
+        int dehnen_gif = R.drawable.dehnen_gif;
         ContentValues values6 = new ContentValues();
-        values6.put(COLUMN_NAME_UEBUNGSNAME, "Übung 6");
-        values6.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values6.put(COLUMN_NAME_GIF, Integer.toString(gif6)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values6.put(COLUMN_NAME_BILD, Integer.toString(bild6)); //siehe GIF
-        values6.put(COLUMN_NAME_KOERPERTEIL, mBeine);
+        values6.put(COLUMN_NAME_UEBUNGSNAME, "Dehnen");
+        values6.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "1. Füße parallel mit ca 40cm Abstand, Rücken gerade halten, Knie langsam nach außen bewegen. " +
+                "2. Füße parallel hintereinander mit ca 20cm Abstand, Knie langsam nach vorne bewegen." +
+                "3. Hände hinter dem Rücken von oben und unte");
+        values6.put(COLUMN_NAME_GIF, Integer.toString(dehnen_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values6.put(COLUMN_NAME_BILD, Integer.toString(dehnen_bild)); //siehe GIF
+        values6.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
         values6.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values6.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values6.put(COLUMN_NAME_PARTNER, mFalse);
+        values6.put(COLUMN_NAME_VORGABEZEIT, "2-5 Minuten"); //einfach als String
+        values6.put(COLUMN_NAME_BEISPIEL, "Verschiedenen Dehnübungen.");
+        values6.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values6);
 
         //Übung 7
-        int bild7 = R.drawable.handschalgen_bild;
-        int gif7 = R.drawable.handschlagen_gif;
+        int handschalgen_bild = R.drawable.handschalgen_bild;
+        int handschlagen_gif = R.drawable.handschlagen_gif;
         ContentValues values7 = new ContentValues();
-        values7.put(COLUMN_NAME_UEBUNGSNAME, "Übung 7");
-        values7.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values7.put(COLUMN_NAME_GIF, Integer.toString(gif7)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values7.put(COLUMN_NAME_BILD, Integer.toString(bild7)); //siehe GIF
-        values7.put(COLUMN_NAME_KOERPERTEIL, mBeine);
-        values7.put(COLUMN_NAME_SCHWIERIGKEIT, "3"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
+        values7.put(COLUMN_NAME_UEBUNGSNAME, "Handschlagen");
+        values7.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Beide Hände mit den Handinnenflächen aneinander, den Daumen oben und den Fingerspizten vom Körper weg vor den Körper halten. Die andere Person stellt sich direkt davor und macht die gleiche Geste, sodass sich die Fingerspitzen berühren. Eine Person beginnt und versucht die Hände der anderen Person zwischen ihren eigenen Handflächen zu fangen. Wenn die andere Person ihre Hände früh genug wegzieht klatscht die erste Person is leere. Wenn die andere Person nicht schnell genug reagiert und ihre Hände \"gefangen\" werden ist sie an der Reihe die Hände ihres*ihrer Mitspieler*in zu fangen. So geht das hin und her.");
+        values7.put(COLUMN_NAME_GIF, Integer.toString(handschlagen_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values7.put(COLUMN_NAME_BILD, Integer.toString(handschalgen_bild)); //siehe GIF
+        values7.put(COLUMN_NAME_KOERPERTEIL, mMental);
+        values7.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values7.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values7.put(COLUMN_NAME_PARTNER, mFalse);
+        values7.put(COLUMN_NAME_PARTNER, mTrue);
+        values7.put(COLUMN_NAME_VORGABEZEIT, "2-5 Minuten"); //einfach als String
+        values7.put(COLUMN_NAME_BEISPIEL, "Durch Klatschen müssen die Hände des gegenspielers gefangen werden");
+        values7.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values7);
 
         //Übung 8
-        int bild8 = R.drawable.rueckensitzen_bild;
-        int gif8 = R.drawable.rueckensitzen_gif;
+        int rueckensitzen_bild = R.drawable.rueckensitzen_bild;
+        int rueckensitzen_gif = R.drawable.rueckensitzen_gif;
         ContentValues values8 = new ContentValues();
-        values8.put(COLUMN_NAME_UEBUNGSNAME, "Übung 8");
-        values8.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values8.put(COLUMN_NAME_GIF, Integer.toString(gif8)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values8.put(COLUMN_NAME_BILD, Integer.toString(bild8)); //siehe GIF
-        values8.put(COLUMN_NAME_KOERPERTEIL, mRuecken);
-        values8.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
-        values8.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values8.put(COLUMN_NAME_PARTNER, mFalse);
+        values8.put(COLUMN_NAME_UEBUNGSNAME, "Rückensitzen");
+        values8.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Wie Wandsitzen, nur das Wand durch Person in selber Haltung ersetzt wird");
+        values8.put(COLUMN_NAME_GIF, Integer.toString(rueckensitzen_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values8.put(COLUMN_NAME_BILD, Integer.toString(rueckensitzen_bild)); //siehe GIF
+        values8.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
+        values8.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
+        values8.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
+        values8.put(COLUMN_NAME_PARTNER, mTrue);
+        values8.put(COLUMN_NAME_VORGABEZEIT, "1-2 Minuten"); //einfach als String
+        values8.put(COLUMN_NAME_BEISPIEL, "Durch halten werden Rücken- und Beinmuskulatur gestärkt");
+        values8.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values8);
 
         //Übung 9
-        int bild9 = R.drawable.trizeps_bild;
-        int gif9 = R.drawable.trizeps_gif;
+        int trizeps_bild = R.drawable.trizeps_bild;
+        int trizeps_gif = R.drawable.trizeps_gif;
         ContentValues values9 = new ContentValues();
-        values9.put(COLUMN_NAME_UEBUNGSNAME, "Übung 9");
-        values9.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values9.put(COLUMN_NAME_GIF, Integer.toString(gif9)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values9.put(COLUMN_NAME_BILD, Integer.toString(bild9)); //siehe GIF
-        values9.put(COLUMN_NAME_KOERPERTEIL, mBeine);
-        values9.put(COLUMN_NAME_SCHWIERIGKEIT, "2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
-        values9.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values9.put(COLUMN_NAME_PARTNER, mTrue);
+        values9.put(COLUMN_NAME_UEBUNGSNAME, "Tischplatten Trizeps");
+        values9.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Durch Druck auf die Tischplatte wird der Trizeps trainiert");
+        values9.put(COLUMN_NAME_GIF, Integer.toString(trizeps_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values9.put(COLUMN_NAME_BILD, Integer.toString(trizeps_bild)); //siehe GIF
+        values9.put(COLUMN_NAME_KOERPERTEIL, mArme);
+        values9.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
+        values9.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
+        values9.put(COLUMN_NAME_PARTNER, mFalse);
+        values5.put(COLUMN_NAME_VORGABEZEIT, "1-2 Minuten"); //einfach als String
+        values5.put(COLUMN_NAME_BEISPIEL, "Im Bürostuhl aufrecht hinsetzen. Die Unterarme liegen parallel auf der Tischplatte und die Finger zeigen nach vorne. Drücken Sie nun die Unterarme kräftig gegen den Tisch und halten die Spannung");
+        values5.put(COLUMN_NAME_ARBEITSZEIT, mTrue); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values9);
 
         //Übung 10
-        int bild10 = R.drawable.werfen_bild;
-        int gif10 = R.drawable.werfen_gif;
-        int gif11 = R.drawable.werfen_variation_gif;
+        int werfen_bild = R.drawable.werfen_bild;
+        int werfen_variation_gif = R.drawable.werfen_variation_gif;
         ContentValues values10 = new ContentValues();
-        values10.put(COLUMN_NAME_UEBUNGSNAME, "Übung 10");
-        values10.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Blah");
-        values10.put(COLUMN_NAME_GIF, Integer.toString(gif10)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
-        values10.put(COLUMN_NAME_BILD, Integer.toString(bild10)); //siehe GIF
-        values10.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
+        values10.put(COLUMN_NAME_UEBUNGSNAME, "Zuwerfen");
+        values10.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Beliebige Gegenstände werden zwischen Personen hin- und her geworfen");
+        values10.put(COLUMN_NAME_GIF, Integer.toString(werfen_variation_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values10.put(COLUMN_NAME_BILD, Integer.toString(werfen_bild)); //siehe GIF
+        values10.put(COLUMN_NAME_KOERPERTEIL, mMental);
         values10.put(COLUMN_NAME_SCHWIERIGKEIT, "1"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values10.put(COLUMN_NAME_WIEDERHOLUNG, mTrue); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
-        values10.put(COLUMN_NAME_PARTNER, mFalse);
+        values10.put(COLUMN_NAME_PARTNER, mTrue);
+        values5.put(COLUMN_NAME_VORGABEZEIT, "2-3 Minuten"); //einfach als String
+        values5.put(COLUMN_NAME_BEISPIEL, "Person A wirft Person B einen Bleistift zu und gibt Befehl mit welcher Hand dieser gefangen werden soll. Variation: Gegenstand und Anzahl dieser kann variiert werden, sowie Name des Befehls, Art des Fangens und des Werfens");
+        values5.put(COLUMN_NAME_ARBEITSZEIT, mFalse); //wenn während Arbeitszeit geeignet = true
         db.insert(TABLE_WORKOUTS, null, values10);
     }
 

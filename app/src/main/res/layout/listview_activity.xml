@@ -17,20 +17,27 @@
         android:layout_width="221dp"
         android:layout_height="145dp"
         android:orientation="vertical"
-        android:padding="7dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/listview_item_title"
             android:layout_width="198dp"
-            android:layout_height="36dp"
-            android:textSize="15sp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/listview_item_short_description"
-            android:layout_width="190dp"
-            android:layout_height="81dp"
+            android:layout_width="198dp"
+            android:layout_height="25dp"
             android:paddingTop="5dp"
             android:textSize="12sp" />
+        <TextView
+            android:id="@+id/listview_item_partner_necessary"
+            android:layout_width="198dp"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:textSize="15sp"
+            android:textColor="@color/red"/>
     </LinearLayout>
 </LinearLayout>

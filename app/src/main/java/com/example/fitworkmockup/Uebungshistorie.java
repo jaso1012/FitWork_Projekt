@@ -16,7 +16,7 @@ import java.util.List;
 public class Uebungshistorie extends AppCompatActivity {
 
     // Array of strings for ListView Title
-    String[] listviewTitle = new String[]{
+    /*String[] listviewTitle = new String[]{
             "Spazieren", "Rückendehnung 1", "Rückendehnung 2", "ListView Title 4",
             "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
     };
@@ -35,9 +35,9 @@ public class Uebungshistorie extends AppCompatActivity {
     String[] listviewDauer = new String[]{
             "5:04 Minuten", "30 Sekunden", "1:00 Minute", "Android ListView Short Description",
             "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-    };
+    };*/
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebungen);
@@ -64,5 +64,5 @@ public class Uebungshistorie extends AppCompatActivity {
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listview_for_uebungshistorie, from, to);
         ListView androidListView = (ListView) findViewById(R.id.uebungen_listview);
         androidListView.setAdapter(simpleAdapter);
-    }
+    }*/
 }

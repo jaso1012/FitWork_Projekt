@@ -62,9 +62,12 @@ public class Uebungen extends AppCompatActivity {
         androidListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int mUebungID;
                 final String item = parent.getItemAtPosition(position).toString();
+                mUebungID = extractUebungID(item);
                 mClickedItem = item.substring(0,1);
                 Log.d("TAG", item);
+                Log.d("TAG", String.valueOf(mUebungID));
                 Intent intent = new Intent(Uebungen.this, Aktive_Uebung.class);
                 startActivity(intent);
             }
@@ -77,6 +80,16 @@ public class Uebungen extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private int extractUebungID(String item) {
+        int mFirstIndex; int mLastIndex;
+        String mFirstCutOff; String mSecondCutOff;
+        mFirstIndex = item.lastIndexOf("uebungsID=");
+        mFirstCutOff = item.substring(mFirstIndex);
+        mSecondCutOff = mFirstCutOff.replace("uebungsID=", "");
+        mLastIndex = mSecondCutOff.indexOf(",");
+        return Integer.parseInt(mSecondCutOff.substring(0, mLastIndex));
     }
 
     protected void getUebungenAlphabetically()
@@ -113,6 +126,9 @@ public class Uebungen extends AppCompatActivity {
                 hm.put("schwierigkeit", mSchwierigkeit_string);
                 hm.put("wiederholung", data.getString(7));
                 hm.put("partner", mPartnerErforderlich);
+                hm.put("vorgabezeit", data.getString(9));
+                hm.put("beispiel", data.getString(10));
+                hm.put("arbeitszeit", data.getString(11));
                 mUebungenList.add(hm);
             }
             /* Beispielzwecke

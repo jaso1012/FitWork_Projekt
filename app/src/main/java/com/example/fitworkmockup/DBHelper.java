@@ -102,7 +102,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values1.put(COLUMN_NAME_GIF, Integer.toString(ansagen_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
         values1.put(COLUMN_NAME_BILD, Integer.toString(ansagen_bild)); //siehe GIF
         values1.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
-        values1.put(COLUMN_NAME_SCHWIERIGKEIT, "1-2"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
+        values1.put(COLUMN_NAME_SCHWIERIGKEIT, "3"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer
         values1.put(COLUMN_NAME_WIEDERHOLUNG, mFalse); // Wenn die Übung mit Wiederholungen ausgeübt wird (wie z.B. Kniebeugen) = true; wenn nicht (z.B. Spazieren) = false
         values1.put(COLUMN_NAME_PARTNER, mTrue);
         values1.put(COLUMN_NAME_VORGABEZEIT, "1-5 Minuten"); //einfach als String

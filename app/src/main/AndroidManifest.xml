@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ViewPageAdapter"
             android:exported="false" />
         <activity

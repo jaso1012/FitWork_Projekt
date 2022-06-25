@@ -31,8 +31,8 @@ android {
     namespace 'com.example.fitworkmockup'
 }
 
-dependencies {
-
+dependencies
+        {
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
@@ -42,4 +42,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.0'
 }

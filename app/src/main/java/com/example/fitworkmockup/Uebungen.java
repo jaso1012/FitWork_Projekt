@@ -3,14 +3,20 @@ package com.example.fitworkmockup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.getkeepsafe.taptargetview.TapTarget;
+import com.getkeepsafe.taptargetview.TapTargetSequence;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,8 +29,8 @@ public class Uebungen extends AppCompatActivity {
     private List<HashMap<String, String>> mUebungenList = new ArrayList<HashMap<String, String>>();
     private  String mClickedItem;
 
-    // Array of strings for ListView Title
-    /*String[] listviewTitle = new String[]{
+    //Array of strings for ListView Title
+    String[] listviewTitle = new String[]{
             "Spazieren", "Rückendehnung 1", "Rückendehnung 2", "ListView Title 4",
             "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
     };
@@ -38,7 +44,7 @@ public class Uebungen extends AppCompatActivity {
     String[] listviewShortDescription = new String[]{
             "Geh raus an die frische Luft und laufe durch die Gegend", "Wirke Verspannungen entgegen", "Android ListView Short Description", "Android ListView Short Description",
             "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-    };*/
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,9 @@ public class Uebungen extends AppCompatActivity {
         getSupportActionBar().setTitle("Übungen");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String prevStarted = "prevStarted2";
+        SharedPreferences sharedpreferences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+
         getUebungenAlphabetically();
 
         String[] from = {"bild", "uebungsname", "schwierigkeit", "partner"};
@@ -58,6 +67,48 @@ public class Uebungen extends AppCompatActivity {
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), mUebungenList, R.layout.listview_activity, from, to);
         ListView androidListView = (ListView) findViewById(R.id.uebungen_listview);
         androidListView.setAdapter(simpleAdapter);
+
+        if (!sharedpreferences.getBoolean(prevStarted, false))
+        {
+            new TapTargetSequence(this)
+                    .targets(
+                            TapTarget.forView(androidListView,"Jede Übung beinhaltet eine einfache Bescheibung der Übung mitsamt Anleitbildern, eine Uhr und einen geschätzen Schwierigkeitsgrad, "," ")
+                                    .outerCircleColor(R.color.light_blue)
+                                    .outerCircleAlpha(0.96f)
+                                    .targetCircleColor(R.color.white)
+                                    .titleTextSize(20)
+                                    .titleTextColor(R.color.white)
+                                    .descriptionTextSize(10)
+                                    .descriptionTextColor(R.color.black)
+                                    .textColor(R.color.black)
+                                    .textTypeface(Typeface.SANS_SERIF)
+                                    .dimColor(R.color.black)
+                                    .drawShadow(true)
+                                    .cancelable(false)
+                                    .tintTarget(true)
+                                    .transparentTarget(false)
+                                    .targetRadius(60)).listener(new TapTargetSequence.Listener()
+                    {
+                        @Override
+                        public void onSequenceFinish() {
+
+                        }
+
+                        @Override
+                        public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
+
+                        }
+
+                        @Override
+                        public void onSequenceCanceled(TapTarget lastTarget) {
+
+                        }
+                    }).start();
+
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putBoolean(prevStarted, Boolean.TRUE);
+            editor.apply();
+        }
 
         androidListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -30,7 +30,7 @@ public class Uebungen extends AppCompatActivity {
     private  String mClickedItem;
 
     //Array of strings for ListView Title
-    String[] listviewTitle = new String[]{
+    /*String[] listviewTitle = new String[]{
             "Spazieren", "Rückendehnung 1", "Rückendehnung 2", "ListView Title 4",
             "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
     };
@@ -44,7 +44,7 @@ public class Uebungen extends AppCompatActivity {
     String[] listviewShortDescription = new String[]{
             "Geh raus an die frische Luft und laufe durch die Gegend", "Wirke Verspannungen entgegen", "Android ListView Short Description", "Android ListView Short Description",
             "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-    };
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

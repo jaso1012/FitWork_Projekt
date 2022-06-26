@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity
         {
             new TapTargetSequence(this)
                     .targets(
-                            TapTarget.forView(uebungen_button,"Button 1","This is Button 1")
-                                    .outerCircleColor(R.color.orange)
+                            TapTarget.forView(uebungen_button,"Hier findest du alle verfügbaren Übungen der App "," ")
+                                    .outerCircleColor(R.color.light_blue)
                                     .outerCircleAlpha(0.96f)
                                     .targetCircleColor(R.color.white)
                                     .titleTextSize(20)
@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity
                                     .transparentTarget(true)
                                     .targetRadius(60),
 
-                            TapTarget.forView(uebungshistorie_button,"Button 3","This is Button 3")
-                                    .outerCircleColor(R.color.orange)
+                            TapTarget.forView(uebungshistorie_button,"Hier findest du die Liste aller Übungen, die du gemacht hast"," ")
+                                    .outerCircleColor(R.color.light_blue)
                                     .outerCircleAlpha(0.96f)
                                     .targetCircleColor(R.color.white)
                                     .titleTextSize(20)
@@ -76,14 +76,10 @@ public class MainActivity extends AppCompatActivity
                         @Override
                         public void onSequenceFinish() {
 
-                            Toast.makeText(MainActivity.this,"Sequence Finished",Toast.LENGTH_SHORT).show();
-
                         }
 
                         @Override
                         public void onSequenceStep(TapTarget lastTarget, boolean targetClicked) {
-
-                            Toast.makeText(MainActivity.this,"GREAT!",Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -97,19 +93,6 @@ public class MainActivity extends AppCompatActivity
             editor.putBoolean(prevStarted, Boolean.TRUE);
             editor.apply();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         uebungen_button.setOnClickListener(new View.OnClickListener(){
             @Override

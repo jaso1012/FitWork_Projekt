@@ -18,5 +18,5 @@
     <color name="active">#50C2C9</color>
 
     //Material Tap Target Prompt Colours
-    <color name="orange">#FF5722</color>
+    <color name="light_blue">#22F8FF</color>
 </resources>

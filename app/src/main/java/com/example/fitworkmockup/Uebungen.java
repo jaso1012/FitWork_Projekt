@@ -21,7 +21,6 @@ public class Uebungen extends AppCompatActivity {
 
     DBHelper mDBHelper = new DBHelper(this);
     private List<HashMap<String, String>> mUebungenList = new ArrayList<HashMap<String, String>>();
-    private  String mClickedItem;
 
     // Array of strings for ListView Title
     /*String[] listviewTitle = new String[]{
@@ -65,10 +64,9 @@ public class Uebungen extends AppCompatActivity {
                 int mUebungID;
                 final String item = parent.getItemAtPosition(position).toString();
                 mUebungID = extractUebungID(item);
-                mClickedItem = item.substring(0,1);
-                Log.d("TAG", item);
                 Log.d("TAG", String.valueOf(mUebungID));
                 Intent intent = new Intent(Uebungen.this, Aktive_Uebung.class);
+                intent.putExtra("uebungsID", mUebungID);
                 startActivity(intent);
             }
         });
@@ -77,6 +75,10 @@ public class Uebungen extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 //popup window
+                int mUebungID;
+                final String item = parent.getItemAtPosition(position).toString();
+                mUebungID = extractUebungID(item);
+                //extra layout nötig - google Sören (falls du plötzlich noch dümmer wirst...)
                 return false;
             }
         });

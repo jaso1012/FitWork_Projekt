@@ -27,8 +27,8 @@ public class Uebungen extends AppCompatActivity {
     DBHelper mDBHelper = new DBHelper(this);
     private List<HashMap<String, String>> mUebungenList = new ArrayList<HashMap<String, String>>();
 
-    // Array of strings for ListView Title
-    /*String[] listviewTitle = new String[]{
+    //Array of strings for ListView Title
+    String[] listviewTitle = new String[]{
             "Spazieren", "Rückendehnung 1", "Rückendehnung 2", "ListView Title 4",
             "ListView Title 5", "ListView Title 6", "ListView Title 7", "ListView Title 8",
     };
@@ -42,7 +42,7 @@ public class Uebungen extends AppCompatActivity {
     String[] listviewShortDescription = new String[]{
             "Geh raus an die frische Luft und laufe durch die Gegend", "Wirke Verspannungen entgegen", "Android ListView Short Description", "Android ListView Short Description",
             "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description", "Android ListView Short Description",
-    };*/
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 
 import java.util.Objects;
 
@@ -20,7 +22,6 @@ public class Uebungsoptionen extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Übungsoptionen wählen");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        Objects.requireNonNull(toolbar.getNavigationIcon()).setVisible(false, false);
 
         Intent intent = getIntent();
         int mUebungsID = intent.getIntExtra("UEBUNGS_ID", -1);

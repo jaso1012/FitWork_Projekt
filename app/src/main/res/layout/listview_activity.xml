@@ -4,32 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="7dp">
+    android:padding="5dp">
 
     <ImageView
         android:id="@+id/listview_image"
         android:layout_width="170dp"
         android:layout_height="126dp"
         android:contentDescription="@string/app_name"
-        android:padding="10dp" />
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"/>
 
     <LinearLayout
         android:layout_width="221dp"
         android:layout_height="145dp"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp">
 
         <TextView
             android:id="@+id/listview_item_title"
             android:layout_width="198dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/listview_dauer"
+            android:layout_width="198dp"
+            android:layout_height="20dp"
+            android:textSize="12sp"
+            android:paddingTop="5dp"/>
+
+        <TextView
             android:id="@+id/listview_item_short_description"
             android:layout_width="198dp"
-            android:layout_height="25dp"
+            android:layout_height="20dp"
             android:paddingTop="5dp"
             android:textSize="12sp" />
         <TextView

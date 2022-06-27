@@ -65,8 +65,8 @@ public class Uebungen extends AppCompatActivity {
                 final String item = parent.getItemAtPosition(position).toString();
                 mUebungID = extractUebungID(item);
                 Log.d("TAG", String.valueOf(mUebungID));
-                Intent intent = new Intent(Uebungen.this, Aktive_Uebung.class);
-                intent.putExtra("uebungsID", mUebungID);
+                Intent intent = new Intent(Uebungen.this, Uebungsoptionen.class);
+                intent.putExtra("UEBUNGS_ID", mUebungID);
                 startActivity(intent);
             }
         });

@@ -9,6 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".Uebungsoptionen"
+            android:exported="false"
+            android:parentActivityName=".Uebungen"/>
+        <activity
             android:name=".ViewPageAdapter"
             android:exported="false" />
         <activity
@@ -23,7 +27,7 @@
         <activity
             android:name=".Aktive_Uebung"
             android:exported="false"
-            android:parentActivityName=".Uebungen" />
+            android:parentActivityName=".Uebungsoptionen" />
         <activity
             android:name=".Uebungshistorie"
             android:exported="false"

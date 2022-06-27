@@ -9,6 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".Uebungen_popup"
+            android:theme="@style/Theme.FitWorkMockup.CustomTheme"
+            android:exported="false"
+            android:parentActivityName=".Uebungen"/>
+        <activity
             android:name=".Uebungsoptionen"
             android:exported="false"
             android:parentActivityName=".Uebungen"/>

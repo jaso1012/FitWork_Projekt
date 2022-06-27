@@ -7,13 +7,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -26,6 +26,8 @@ public class Uebungen extends AppCompatActivity {
 
     DBHelper mDBHelper = new DBHelper(this);
     private List<HashMap<String, String>> mUebungenList = new ArrayList<HashMap<String, String>>();
+
+    PopupWindow popup;
 
     // Array of strings for ListView Title
     /*String[] listviewTitle = new String[]{
@@ -69,7 +71,6 @@ public class Uebungen extends AppCompatActivity {
                 int mUebungID;
                 final String item = parent.getItemAtPosition(position).toString();
                 mUebungID = extractUebungID(item);
-                Log.d("TAG", String.valueOf(mUebungID));
                 Intent intent = new Intent(Uebungen.this, Uebungsoptionen.class);
                 intent.putExtra("UEBUNGS_ID", mUebungID);
                 startActivity(intent);
@@ -83,11 +84,85 @@ public class Uebungen extends AppCompatActivity {
                 int mUebungID;
                 final String item = parent.getItemAtPosition(position).toString();
                 mUebungID = extractUebungID(item);
-                //extra layout nötig - google Sören (falls du plötzlich noch dümmer wirst...)
-                return false;
+                Intent intent = new Intent(Uebungen.this, Uebungen_popup.class);
+                intent.putExtra("UEBUNGS_ID", mUebungID);
+                startActivity(intent);
+
+                /*//Daten aus HashMap holen
+                String uebungsname; String uebungsbeschreibung; String gif; String koerperteil;
+                String schwierigkeit; String partner; String vorgabezeit; String beispiel; String arbeitsplatz;
+                int gifInteger;
+
+                uebungsname = mUebungenList.get(mUebungID).get("uebungsname");
+                uebungsbeschreibung = "Beschreibung: " + mUebungenList.get(mUebungID).get("uebungsbeschreibung");
+                gif = mUebungenList.get(mUebungID).get("gif");
+                gifInteger = Integer.parseInt(gif);
+                koerperteil = "Hauptziel der Übung: " + mUebungenList.get(mUebungID).get("koerperteil");
+                schwierigkeit = mUebungenList.get(mUebungID).get("schwierigkeit");
+                if (mUebungenList.get(mUebungID).get("partner") == "") {
+                    partner = "Diese Übung kann alleine durchgeführt werden";
+                }
+                else {
+                    partner = "Für diese Übung ist ein " + mUebungenList.get(mUebungID).get("partner");
+                }
+                vorgabezeit = "Die erwartete Dauer dieser Übung beträgt " + mUebungenList.get(mUebungID).get("vorgabezeit");
+                beispiel = "Beispiel: " + mUebungenList.get(mUebungID).get("beispiel");
+                if(mUebungenList.get(mUebungID).get("arbeitszeit") == "true") {
+                    arbeitsplatz = "Diese Übung kann am Arbeitsplatz durchgeführt werden";
+                }
+                else{
+                    arbeitsplatz = "Diese Übung kann nicht am Arbeitsplatz durchgeführt werden";
+                }
+
+                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+                View popupView = inflater.inflate(R.layout.uebungen_popup, null);
+
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // lets taps outside the popup also dismiss it
+                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window
+                // which view you pass in doesn't matter, it is only used for the window tolken
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                //set Text etc
+                GifImageView mGif = findViewById(R.id.popup_gifImageView);
+                TextView mUebungsname = findViewById(R.id.popup_uebungsname);
+                TextView mKoerperteil = findViewById(R.id.pupup_koerperteil);
+                TextView mBeschreibung = findViewById(R.id.popup_beschreibung);
+                TextView mSchwierigkeit = findViewById(R.id.popup_schwierigkeit);
+                TextView mPartner = findViewById(R.id.popup_partner);
+                TextView mDauer = findViewById(R.id.popup_dauer);
+                TextView mBeispiel = findViewById(R.id.popup_beispiel);
+                TextView mArbeitsplatz = findViewById(R.id.popup_arbeitsplatz);
+
+                Log.d("TAG", gif);
+                mUebungsname.setText(uebungsname);
+                mKoerperteil.setText(koerperteil);
+                mBeschreibung.setText(uebungsbeschreibung);
+                mSchwierigkeit.setText(schwierigkeit);
+                mPartner.setText(partner);
+                mDauer.setText(vorgabezeit);
+                mBeispiel.setText(beispiel);
+                mArbeitsplatz.setText(arbeitsplatz);
+
+
+                // dismiss the popup window when touched
+                popupView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });*/
+                return true;
             }
         });
     }
+
+
 
     private int extractUebungID(String item) {
         int mFirstIndex; int mLastIndex;

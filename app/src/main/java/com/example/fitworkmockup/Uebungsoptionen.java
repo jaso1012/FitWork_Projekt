@@ -11,6 +11,8 @@ import android.view.View;
 
 import java.util.Objects;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class Uebungsoptionen extends AppCompatActivity {
 
     @Override
@@ -26,5 +28,8 @@ public class Uebungsoptionen extends AppCompatActivity {
         Intent intent = getIntent();
         int mUebungsID = intent.getIntExtra("UEBUNGS_ID", -1);
         Log.d("TAG", String.valueOf(mUebungsID));
+
+        GifImageView gifImageView = findViewById(R.id.gifImageView);
+        gifImageView.setImageResource(R.drawable.werfen_gif);
     }
 }

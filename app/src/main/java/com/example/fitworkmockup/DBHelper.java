@@ -99,7 +99,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values1 = new ContentValues();
         values1.put(COLUMN_NAME_UEBUNGSNAME, "Koordination");
         values1.put(COLUMN_NAME_UEBUNGSBESCHREIBUNG, "Im Stand werden Arme und Beine in bestimmten Variationen entweder auf derselben oder der gegenüberliegenden Körperseite nach Ansage bewegt");
-        values1.put(COLUMN_NAME_GIF, Integer.toString(ansagen_gif)); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
+        values1.put(COLUMN_NAME_GIF, "R.drawable.ansagen_gif;"); //echt auf Tippfehler aufpassen - am besten Copy&Paste vom Namen und dann ".gif" löschen
         values1.put(COLUMN_NAME_BILD, Integer.toString(ansagen_bild)); //siehe GIF
         values1.put(COLUMN_NAME_KOERPERTEIL, mGanzkoerper);
         values1.put(COLUMN_NAME_SCHWIERIGKEIT, "3"); //Schwierigkeit als Zahl - 1 = Leicht, 2 = Mittel, 3 = Schwer

@@ -104,7 +104,7 @@ public class Uebungen_popup extends Activity {
         mDauer.setText(vorgabezeit);
         mBeispiel.setText(beispiel);
         mArbeitsplatz.setText(arbeitsplatz);
-        mGif.setImageResource(R.drawable.spazieren_gif);
+        mGif.setImageResource(Integer.parseInt(gif));
     }
 
     private void getDataByID(int mUebungsID) {

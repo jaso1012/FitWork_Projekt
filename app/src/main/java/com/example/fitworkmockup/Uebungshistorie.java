@@ -1,13 +1,18 @@
 package com.example.fitworkmockup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -63,6 +68,41 @@ public class Uebungshistorie extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), aList, R.layout.listview_for_uebungshistorie, from, to);
         ListView androidListView = (ListView) findViewById(R.id.uebungen_listview);
-        androidListView.setAdapter(simpleAdapter);
-    }*/
+        androidListView.setAdapter(simpleAdapter);*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        /*MenuItem menuItem = menu.add("Alle löschen");
+        SubMenu subMenu = menu.addSubMenu("Alle löschen");
+        menuItem.setTitle("Alle löschen");
+        menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menuItem.setIcon(R.drawable.ic_baseline_delete_sweep_24);
+        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                //Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+                Log.d("TAG", "Clicked");
+                return true;
+            }
+        });*/
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.delete_all_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.sub_delete_all:
+                //Pop-up "Sind sie sicher, dass sie alle Einträge löschen wollen?" Ja/Nein
+                Toast.makeText(Uebungshistorie.this, "Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

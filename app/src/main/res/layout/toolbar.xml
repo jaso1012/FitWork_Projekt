@@ -9,14 +9,4 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <ImageButton
-        android:id="@+id/menu"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="end"
-        android:src="@drawable/ic_baseline_menu_24"
-        android:background="@android:color/transparent"
-        app:showAsAction="ifRoom"
-        />
-
 </androidx.appcompat.widget.Toolbar>

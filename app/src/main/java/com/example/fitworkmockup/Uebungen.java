@@ -270,7 +270,7 @@ public class Uebungen extends AppCompatActivity {
                     mPartnerErforderlich = "Partner Erforderlich!";
                 }
                 mErwarteteDauer = "Dauer: " + data.getString(9);
-                //kann nicht
+
 
 
                 HashMap<String, String> hm = new HashMap<String, String>();

@@ -1,18 +1,33 @@
 package com.example.fitworkmockup;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.text.InputType;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -22,6 +37,7 @@ public class Uebungsoptionen extends AppCompatActivity {
     DBHelper mDBHelper = new DBHelper(this);
     private boolean timerSelected = false;
     private boolean repsSelected = false;
+    private String dialogInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,16 +127,107 @@ public class Uebungsoptionen extends AppCompatActivity {
         mUebungStarten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(!timerSelected && !repsSelected){
                     Intent intent = new Intent(Uebungsoptionen.this, Aktive_Uebung.class);
                     intent.putExtra("UEBUNGS_ID", mUebungsID);
+                    intent.putExtra("GEWÄHLTE_ZEIT", "Keine Angabe");
+                    intent.putExtra("GEWÄHLTE_REPS", "Keine Angabe");
                     startActivity(intent);
                 }
                 else if(timerSelected && !repsSelected){
-                    //dialog
+                    RelativeLayout relative = new RelativeLayout(Uebungsoptionen.this);
+                    AlertDialog.Builder timerDialog = new AlertDialog.Builder(Uebungsoptionen.this);
+                    timerDialog.setTitle("Geben Sie die gewünschte Übungsdauer an");
+
+                    final NumberPicker numberPickerMinuten = new NumberPicker(Uebungsoptionen.this);
+                    numberPickerMinuten.setMaxValue(59);
+                    numberPickerMinuten.setMinValue(0);
+                    final NumberPicker numberPickerSekunden = new NumberPicker(Uebungsoptionen.this);
+                    numberPickerSekunden.setMaxValue(59);
+                    numberPickerSekunden.setMinValue(0);
+
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(50, 50);
+
+                    RelativeLayout.LayoutParams numPicerParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    RelativeLayout.LayoutParams qPicerParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                    numPicerParams.leftMargin = 20;
+                    qPicerParams.rightMargin = 20;
+
+
+                    numPicerParams.addRule(RelativeLayout.ALIGN_PARENT_START);
+                    qPicerParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    relative.setLayoutParams(params);
+                    relative.addView(numberPickerMinuten,numPicerParams);
+                    relative.addView(numberPickerSekunden,qPicerParams);
+                    relative.setGravity(Gravity.CENTER);
+
+                    timerDialog.setView(relative);
+
+                    timerDialog.setPositiveButton("Weiter", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String mMinuten; String mSekunden;
+                            if(numberPickerMinuten.getValue() <10){
+                                mMinuten = "0" + numberPickerMinuten.getValue();
+                            }
+                            else{
+                                mMinuten = String.valueOf(numberPickerMinuten.getValue());
+                            }
+                            if(numberPickerSekunden.getValue() <10){
+                                mSekunden = "0" + numberPickerSekunden.getValue();
+                            }
+                            else{
+                                mSekunden= String.valueOf(numberPickerSekunden.getValue());
+                            }
+
+                            dialogInput = mMinuten + ":" + mSekunden;
+                            Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
+
+                            Intent intent = new Intent(Uebungsoptionen.this, Aktive_Uebung.class);
+                            intent.putExtra("UEBUNGS_ID", mUebungsID);
+                            intent.putExtra("GEWÄHLTE_ZEIT", dialogInput);
+                            intent.putExtra("GEWÄHLTE_REPS", "Keine Angabe");
+                            startActivity(intent);
+                        }
+                    });
+
+                    timerDialog.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    timerDialog.show();
                 }
                 else if(!timerSelected && repsSelected){
-                    //dialog
+                    AlertDialog.Builder repDialog = new AlertDialog.Builder(Uebungsoptionen.this);
+                    repDialog.setTitle("Wählen Sie die gewünschten Übungswiederholungen");
+
+                    final EditText repInput = new EditText(Uebungsoptionen.this);
+                    repInput.setInputType(InputType.TYPE_CLASS_NUMBER);
+                    repDialog.setView(repInput);
+
+                    repDialog.setPositiveButton("Weiter", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialogInput = repInput.getText().toString();
+                            Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Uebungsoptionen.this, Aktive_Uebung.class);
+                            intent.putExtra("UEBUNGS_ID", mUebungsID);
+                            intent.putExtra("GEWÄHLTE_ZEIT", "Keine Angabe");
+                            intent.putExtra("GEWÄHLTE_REPS", dialogInput);
+                            startActivity(intent);
+                        }
+                    });
+
+                    repDialog.setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    repDialog.show();
                 }
             }
         });

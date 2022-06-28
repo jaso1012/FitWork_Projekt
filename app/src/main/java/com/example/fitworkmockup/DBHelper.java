@@ -103,6 +103,34 @@ public class DBHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public Cursor getNAAM() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_ARBEITSZEIT + " == 'false'";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public Cursor getAAM() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_ARBEITSZEIT + " == 'true'";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public Cursor getMP() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_PARTNER + " == 'true'";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public Cursor getOP() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_PARTNER + " == 'false'";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
     public Cursor getUebungenByID(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_ID + "= " + id;

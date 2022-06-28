@@ -37,6 +37,28 @@
                             </item>
                         </menu>
                     </item>
+                    <item android:id="@+id/Arbeitsplatz"
+                        android:title="Arbeitsplatz">
+                        <menu>
+                            <item android:id="@+id/NAAM"
+                                android:title="Nicht am Arbeitsplatz möglich">
+                            </item>
+                            <item android:id="@+id/AAM"
+                                android:title="Am Arbeitsplatz möglich">
+                            </item>
+                        </menu>
+                    </item>
+                    <item android:id="@+id/Partner"
+                        android:title="Partner">
+                        <menu>
+                            <item android:id="@+id/MP"
+                                android:title="Mit Partner">
+                            </item>
+                            <item android:id="@+id/OP"
+                                android:title="Ohne Partner">
+                            </item>
+                        </menu>
+                    </item>
                 </menu>
             </item>
 

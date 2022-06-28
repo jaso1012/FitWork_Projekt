@@ -218,9 +218,29 @@ public class Uebungen extends AppCompatActivity {
                 getMiddle();
                 androidListView.setAdapter(simpleAdapter);
                 return true;
-            case R.id.Schwer:t:
+            case R.id.Schwer:
                 mUebungenList.clear();
                 getDifficult();
+                androidListView.setAdapter(simpleAdapter);
+                return true;
+            case R.id.NAAM:
+                mUebungenList.clear();
+                getAtWorkplace();
+                androidListView.setAdapter(simpleAdapter);
+                return true;
+            case R.id.AAM:
+                mUebungenList.clear();
+                getNotAtWorkplace();
+                androidListView.setAdapter(simpleAdapter);
+                return true;
+            case R.id.MP:
+                mUebungenList.clear();
+                getWithPartner();
+                androidListView.setAdapter(simpleAdapter);
+                return true;
+            case R.id.OP:
+                mUebungenList.clear();
+                getWithoutPartner();
                 androidListView.setAdapter(simpleAdapter);
                 return true;
             case android.R.id.home:
@@ -228,6 +248,166 @@ public class Uebungen extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void getWithoutPartner() {
+        if(mDBHelper != null) {
+            Cursor data = mDBHelper.getOP();
+
+            while (data.moveToNext()) {
+                String mSchwierigkeit_string = "";
+                String mPartnerErforderlich = "";
+                String mErwarteteDauer = "";
+                if (Objects.equals(data.getString(6), "1")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Leicht";
+                } else if (Objects.equals(data.getString(6), "2")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Mittel";
+                } else {
+                    mSchwierigkeit_string = "Schwierigkeit: Schwer";
+                }
+                if (Objects.equals(data.getString(8), "true")) {
+                    mPartnerErforderlich = "Partner Erforderlich!";
+                }
+                mErwarteteDauer = "Dauer: " + data.getString(9);
+
+
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("uebungsID", data.getString(0));
+                hm.put("uebungsname", data.getString(1));
+                hm.put("uebungsbeschreibung", data.getString(2));
+                hm.put("gif", data.getString(3));
+                hm.put("bild", data.getString(4));
+                hm.put("koerperteil", data.getString(5));
+                hm.put("schwierigkeit", mSchwierigkeit_string);
+                hm.put("wiederholung", data.getString(7));
+                hm.put("partner", mPartnerErforderlich);
+                hm.put("vorgabezeit", mErwarteteDauer);
+                hm.put("beispiel", data.getString(10));
+                hm.put("arbeitszeit", data.getString(11));
+                mUebungenList.add(hm);
+            }
+            data.close();
+        }
+    }
+
+    private void getWithPartner() {
+        if(mDBHelper != null) {
+            Cursor data = mDBHelper.getMP();
+
+            while (data.moveToNext()) {
+                String mSchwierigkeit_string = "";
+                String mPartnerErforderlich = "";
+                String mErwarteteDauer = "";
+                if (Objects.equals(data.getString(6), "1")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Leicht";
+                } else if (Objects.equals(data.getString(6), "2")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Mittel";
+                } else {
+                    mSchwierigkeit_string = "Schwierigkeit: Schwer";
+                }
+                if (Objects.equals(data.getString(8), "true")) {
+                    mPartnerErforderlich = "Partner Erforderlich!";
+                }
+                mErwarteteDauer = "Dauer: " + data.getString(9);
+
+
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("uebungsID", data.getString(0));
+                hm.put("uebungsname", data.getString(1));
+                hm.put("uebungsbeschreibung", data.getString(2));
+                hm.put("gif", data.getString(3));
+                hm.put("bild", data.getString(4));
+                hm.put("koerperteil", data.getString(5));
+                hm.put("schwierigkeit", mSchwierigkeit_string);
+                hm.put("wiederholung", data.getString(7));
+                hm.put("partner", mPartnerErforderlich);
+                hm.put("vorgabezeit", mErwarteteDauer);
+                hm.put("beispiel", data.getString(10));
+                hm.put("arbeitszeit", data.getString(11));
+                mUebungenList.add(hm);
+            }
+            data.close();
+        }
+    }
+
+    private void getNotAtWorkplace() {
+        if(mDBHelper != null) {
+            Cursor data = mDBHelper.getNAAM();
+
+            while (data.moveToNext()) {
+                String mSchwierigkeit_string = "";
+                String mPartnerErforderlich = "";
+                String mErwarteteDauer = "";
+                if (Objects.equals(data.getString(6), "1")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Leicht";
+                } else if (Objects.equals(data.getString(6), "2")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Mittel";
+                } else {
+                    mSchwierigkeit_string = "Schwierigkeit: Schwer";
+                }
+                if (Objects.equals(data.getString(8), "true")) {
+                    mPartnerErforderlich = "Partner Erforderlich!";
+                }
+                mErwarteteDauer = "Dauer: " + data.getString(9);
+
+
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("uebungsID", data.getString(0));
+                hm.put("uebungsname", data.getString(1));
+                hm.put("uebungsbeschreibung", data.getString(2));
+                hm.put("gif", data.getString(3));
+                hm.put("bild", data.getString(4));
+                hm.put("koerperteil", data.getString(5));
+                hm.put("schwierigkeit", mSchwierigkeit_string);
+                hm.put("wiederholung", data.getString(7));
+                hm.put("partner", mPartnerErforderlich);
+                hm.put("vorgabezeit", mErwarteteDauer);
+                hm.put("beispiel", data.getString(10));
+                hm.put("arbeitszeit", data.getString(11));
+                mUebungenList.add(hm);
+            }
+            data.close();
+        }
+    }
+
+    private void getAtWorkplace() {
+        if(mDBHelper != null) {
+            Cursor data = mDBHelper.getAAM();
+
+            while (data.moveToNext()) {
+                String mSchwierigkeit_string = "";
+                String mPartnerErforderlich = "";
+                String mErwarteteDauer = "";
+                if (Objects.equals(data.getString(6), "1")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Leicht";
+                } else if (Objects.equals(data.getString(6), "2")) {
+                    mSchwierigkeit_string = "Schwierigkeit: Mittel";
+                } else {
+                    mSchwierigkeit_string = "Schwierigkeit: Schwer";
+                }
+                if (Objects.equals(data.getString(8), "true")) {
+                    mPartnerErforderlich = "Partner Erforderlich!";
+                }
+                mErwarteteDauer = "Dauer: " + data.getString(9);
+
+
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("uebungsID", data.getString(0));
+                hm.put("uebungsname", data.getString(1));
+                hm.put("uebungsbeschreibung", data.getString(2));
+                hm.put("gif", data.getString(3));
+                hm.put("bild", data.getString(4));
+                hm.put("koerperteil", data.getString(5));
+                hm.put("schwierigkeit", mSchwierigkeit_string);
+                hm.put("wiederholung", data.getString(7));
+                hm.put("partner", mPartnerErforderlich);
+                hm.put("vorgabezeit", mErwarteteDauer);
+                hm.put("beispiel", data.getString(10));
+                hm.put("arbeitszeit", data.getString(11));
+                mUebungenList.add(hm);
+            }
+            data.close();
         }
     }
 

@@ -11,9 +11,9 @@
         layout="@layout/toolbar" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/gifImageView"
+        android:id="@+id/opt_gifImageView"
         android:layout_width="0dp"
-        android:layout_height="218dp"
+        android:layout_height="175dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
@@ -23,38 +23,83 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/opt_uebungsname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Spazieren"
+        android:layout_marginTop="20dp"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/opt_gifImageView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/opt_beispiel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@id/opt_uebungstarten"
+        app:layout_constraintStart_toStartOf="@id/opt_uebungstarten"
+        app:layout_constraintTop_toBottomOf="@+id/opt_partner_necessarry" />
+
+    <TextView
+        android:id="@+id/opt_partner_necessarry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="00:00"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/red"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/opt_uebungsname" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:id="@+id/opt_uebungstarten"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Übung starten"
+        android:text="Zur Übung"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/opt_chosereps" />
+
+    <RadioButton
+        android:id="@+id/opt_chosenothing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:checked="true"
+        android:text="Ohne Angaben Starten"
+        app:flow_horizontalAlign="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/opt_chosereps"
+        app:layout_constraintTop_toBottomOf="@+id/opt_beispiel" />
+
+    <RadioButton
+        android:id="@+id/opt_chosetime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Stoppuhr stellen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/opt_chosereps"
+        app:layout_constraintTop_toBottomOf="@+id/opt_chosenothing" />
+
+    <RadioButton
+        android:id="@+id/opt_chosereps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menge der Wiederholungen einstellen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/opt_chosetime"
+        android:visibility="invisible"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

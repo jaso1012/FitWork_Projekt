@@ -14,7 +14,9 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
+import pl.droidsonroids.gif.GifOptions;
 
 public class Uebungen_popup extends Activity {
 
@@ -29,7 +31,6 @@ public class Uebungen_popup extends Activity {
         //values
         String uebungsname; String uebungsbeschreibung; String gif; String koerperteil;
         String schwierigkeit; String partner; String vorgabezeit; String beispiel; String arbeitsplatz;
-        int gifInteger;
 
         Intent intent = getIntent();
         int mUebungsID = intent.getIntExtra("UEBUNGS_ID", -1);
@@ -77,7 +78,6 @@ public class Uebungen_popup extends Activity {
         uebungsname = dataByID.get(1);
         uebungsbeschreibung = "Beschreibung: " + dataByID.get(2);
         gif = dataByID.get(3);
-        gifInteger = Integer.parseInt(gif);
         koerperteil = "Hauptziel der Übung: " + dataByID.get(5);
         schwierigkeit = mSchwierigkeit_string;
         if (mPartnerErforderlich == "") {

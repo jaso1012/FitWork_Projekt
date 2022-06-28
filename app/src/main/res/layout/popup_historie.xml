@@ -76,23 +76,6 @@
                 android:padding="5dp"
                 android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/popup_vorgegebenedauer_hist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/pupup_koerperteil_hist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="5dp"
-                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/popup_wiederholungen_hist"
@@ -114,6 +97,24 @@
 
             <TextView
                 android:id="@+id/popup_schwierigkeit_hist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/popup_vorgegebenedauer_hist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/pupup_koerperteil_hist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"

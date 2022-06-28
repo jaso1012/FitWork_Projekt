@@ -110,6 +110,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public  Cursor getHistorieByID(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_HISTORIE + " WHERE " + COLUMN_NAME_ID + "= " + id;
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
     public void deleteDataByID(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Define 'where' part of query.

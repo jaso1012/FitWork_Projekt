@@ -85,6 +85,27 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.rawQuery(query, null);
     }
 
+    public boolean addHistorie(/*String ID, */String UebungsID, String Datum, String Zeit,
+                                          String Zielzeit, String Erzieltewiederhoholungen, String Zielwiederholungen) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_NAME_UEBUNGSID, UebungsID);
+        contentValues.put(COLUMN_NAME_DATUM, Datum);
+        contentValues.put(COLUMN_NAME_ZEIT, Zeit);
+        contentValues.put(COLUMN_NAME_ZIELZEIT, Zielzeit);
+        contentValues.put(COLUMN_NAME_ERZIELTEWIEDERHOLUNGEN, Erzieltewiederhoholungen);
+        contentValues.put(COLUMN_NAME_ZIELWIEDERHOLUNGEN, Zielwiederholungen);
+
+        long result = db.insert(TABLE_HISTORIE, null, contentValues);
+
+        if (result == -1) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
     public void addUebungen(SQLiteDatabase db){
         //erstellen Strings für betätigtes Körperteil - vermeidet Tippfehler beim Einfügen
         String mGanzkoerper = "Ganzkoerper"; String mBeine = "Beine"; String mArme = "Arme"; String mMental = "Mental";

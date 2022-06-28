@@ -17,10 +17,13 @@
     <string name="heading_fourth">Die fit@work App!</string>
 
 
-    // FirstOpen: Describtion
+    // FirstOpen: Description
     <string name="desc_one">Fit am Arbeitsplatz mit einfachen und effektiven Übungen</string>
     <string name="desc_two">Unser Körper ist nicht auf langes Sitzen ausgelegt. Vor allem Menschen, die berufsbedingt viel sitzen, sind besonders gefärdet für Herz-Kreislauf-Erkrankungen, Schlaganfälle und Diabetes  </string>
     <string name="desc_three">…lassen den Blutzuckerspiegel sinken, helfen der Konzentration, fördern die Fettverbrennung und steigern die allgemeine Lebensqualität</string>
     <string name="desc_fourth">Egal wie fit du bist, wie viel Zeit du hast und ob du gerne mit deinen Kollegen Sport treibst: Mit uns kannst du DEINE aktive Pause gestalten! </string>
+
+    //Aktive_Übung
+    <string name="zielwiederholung">Zielwiederholungen:</string>
 
 </resources>

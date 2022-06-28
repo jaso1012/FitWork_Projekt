@@ -138,7 +138,7 @@ public class Uebungsoptionen extends AppCompatActivity {
                 else if(timerSelected && !repsSelected){
                     RelativeLayout relative = new RelativeLayout(Uebungsoptionen.this);
                     AlertDialog.Builder timerDialog = new AlertDialog.Builder(Uebungsoptionen.this);
-                    timerDialog.setTitle("Geben Sie die gewünschte Übungsdauer an");
+                    timerDialog.setTitle("Geben Sie die gewünschte Übungsdauer an (Min:Sek)");
 
                     final NumberPicker numberPickerMinuten = new NumberPicker(Uebungsoptionen.this);
                     numberPickerMinuten.setMaxValue(59);
@@ -182,7 +182,7 @@ public class Uebungsoptionen extends AppCompatActivity {
                             }
 
                             dialogInput = mMinuten + ":" + mSekunden;
-                            Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(Uebungsoptionen.this, Aktive_Uebung.class);
                             intent.putExtra("UEBUNGS_ID", mUebungsID);
@@ -212,7 +212,7 @@ public class Uebungsoptionen extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialogInput = repInput.getText().toString();
-                            Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Uebungsoptionen.this, dialogInput, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Uebungsoptionen.this, Aktive_Uebung.class);
                             intent.putExtra("UEBUNGS_ID", mUebungsID);
                             intent.putExtra("GEWÄHLTE_ZEIT", "Keine Angabe");

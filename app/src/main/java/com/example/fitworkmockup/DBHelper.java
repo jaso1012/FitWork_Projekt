@@ -109,6 +109,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor data = db.rawQuery(query,null);
         return data;
     }
+    //inOrdertoPush
 
     public Cursor getAAM() {
         SQLiteDatabase db = this.getWritableDatabase();

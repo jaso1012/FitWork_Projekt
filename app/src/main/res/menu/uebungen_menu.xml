@@ -14,6 +14,29 @@
                     <item android:id="@+id/alphabetisch"
                         android:title="Alphabetisch">
                     </item>
+                    <item android:id="@+id/Difficulty"
+                        android:title="Schwierigkeit">
+                    </item>
+                </menu>
+            </item>
+            <item android:id="@+id/filtern"
+                android:title="Filtern"
+                app:showAsAction="never">
+                <menu>
+                    <item android:id="@+id/Schwierigkeit"
+                        android:title="Nach Schwierigkeit">
+                        <menu>
+                            <item android:id="@+id/Leicht"
+                                android:title="Leicht">
+                            </item>
+                            <item android:id="@+id/Mittel"
+                                android:title="Mittel">
+                            </item>
+                            <item android:id="@+id/Schwer"
+                                android:title="Schwer">
+                            </item>
+                        </menu>
+                    </item>
                 </menu>
             </item>
 

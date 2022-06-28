@@ -76,6 +76,33 @@ public class DBHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public Cursor getUebungenDifficulty() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " ORDER BY " + COLUMN_NAME_SCHWIERIGKEIT + " ASC";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public Cursor getUebungenEasyDifficulty() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_SCHWIERIGKEIT + " = 1";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public Cursor getUebungenMiddleDifficulty() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_SCHWIERIGKEIT + " = 2";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+    public Cursor getUebungenDifficultDifficulty() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_SCHWIERIGKEIT + " = 3";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
     public Cursor getUebungenByID(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + COLUMN_NAME_ID + "= " + id;

@@ -68,7 +68,7 @@ public class Uebungshistorie extends AppCompatActivity {
                 mUebungID = extractUebungID(item);
                 mHistorieID =extractHistorieID(item);
                 Log.d("TAG", String.valueOf(mUebungID));
-                Intent intent = new Intent(Uebungshistorie.this, Uebungsoptionen.class);
+                Intent intent = new Intent(Uebungshistorie.this, Historie_popup.class);
                 intent.putExtra("UEBUNGS_ID", mUebungID);
                 intent.putExtra("HISTORIEN_ID", mHistorieID);
                 startActivity(intent);

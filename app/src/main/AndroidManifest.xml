@@ -9,6 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitWorkMockup">
         <activity
+            android:name=".Historie_popup"
+            android:theme="@style/Theme.FitWorkMockup.CustomTheme"
+            android:exported="false"
+            android:parentActivityName=".Uebungshistorie"/>
+        <activity
             android:name=".Uebungen_popup"
             android:theme="@style/Theme.FitWorkMockup.CustomTheme"
             android:exported="false"

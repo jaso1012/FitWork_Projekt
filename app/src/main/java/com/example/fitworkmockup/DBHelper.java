@@ -5,11 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
 
 import androidx.annotation.Nullable;
-
-import java.io.ByteArrayOutputStream;
 
 public class DBHelper extends SQLiteOpenHelper {
     private static final String TAG ="DatabaseHelper";
@@ -105,6 +102,28 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public Cursor getHistoryByDate(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_HISTORIE + " ORDER BY " + COLUMN_NAME_DATUM + " DESC";
+        Cursor data = db.rawQuery(query,null);
+        return data;
+    }
+
+    public void deleteDataByID(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Define 'where' part of query.
+        String selection = COLUMN_NAME_ID + "=" + id;
+        // Issue SQL statement.
+        int deletedRows = db.delete(TABLE_HISTORIE, selection, null);
+    }
+
+    public void deleteAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Define 'where' part of query.
+        db.execSQL("delete from " + TABLE_HISTORIE);
+    }
+
 
     public void addUebungen(SQLiteDatabase db){
         //erstellen Strings für betätigtes Körperteil - vermeidet Tippfehler beim Einfügen

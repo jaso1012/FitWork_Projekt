@@ -4,40 +4,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="7dp">
+    android:padding="5dp">
 
     <ImageView
-        android:id="@+id/listview_image"
+        android:id="@+id/hist_listview_image"
         android:layout_width="170dp"
         android:layout_height="126dp"
         android:contentDescription="@string/app_name"
-        android:padding="10dp" />
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"/>
 
     <LinearLayout
         android:layout_width="221dp"
         android:layout_height="145dp"
         android:orientation="vertical"
-        android:padding="7dp">
+        android:paddingStart="5dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="5dp">
 
         <TextView
-            android:id="@+id/listview_item_title"
+            android:id="@+id/hist_listview_item_title"
             android:layout_width="198dp"
-            android:layout_height="36dp"
-            android:textSize="15sp"
+            android:layout_height="40dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/listview_datum"
-            android:layout_width="190dp"
-            android:layout_height="38dp"
-            android:paddingTop="5dp"
-            android:textSize="12sp" />
+            android:id="@+id/hist_listview_datum"
+            android:layout_width="198dp"
+            android:layout_height="20dp"
+            android:textSize="12sp"
+            android:paddingTop="5dp"/>
 
         <TextView
-            android:id="@+id/listview_dauer"
-            android:layout_width="190dp"
-            android:layout_height="33dp"
+            android:id="@+id/hist_listview_dauer"
+            android:layout_width="198dp"
+            android:layout_height="20dp"
             android:paddingTop="5dp"
-            android:textSize="12sp"/>
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/hist_listview_zieldauer"
+            android:layout_width="198dp"
+            android:layout_height="20dp"
+            android:paddingTop="5dp"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/hist_listview_wiederholungen"
+            android:layout_width="198dp"
+            android:layout_height="20dp"
+            android:paddingTop="5dp"
+            android:textSize="12sp"
+            android:visibility="gone"/>
+
     </LinearLayout>
 </LinearLayout>

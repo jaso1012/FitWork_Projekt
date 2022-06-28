@@ -211,7 +211,7 @@ public class Aktive_Uebung extends AppCompatActivity {
 
     //Database
     private void mAddToDatabase() {
-        String mDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+        String mDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         mDBHelper.addHistorie(String.valueOf(mUebungsID), mDate, time, mZielzeit, mErreichteReps, mZielWiederholungen);
     }
 
